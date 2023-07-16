@@ -31,19 +31,18 @@ public class back {
         String input;
         do {
             System.out.print("+ or - ");
-            System.out.println("+-");
             input = s.nextLine();
         } while (!(input.equals("+") | input.equals("-")));
         switch (input) {
             case "+":
                 while (true) {
-                    System.out.println("A: ");
+                    System.out.print("A: ");
                     try {
                         a = Double.parseDouble(s.nextLine().trim());
                         break;
                     }  catch (Exception ignored) {}}
                 while (true) {
-                    System.out.println("B: ");
+                    System.out.print("B: ");
                     try {
                         b = Double.parseDouble(s.nextLine().trim());
                         break;
@@ -53,13 +52,13 @@ public class back {
 
             case "-":
                 while (true) {
-                    System.out.println("C: ");
+                    System.out.print("C: ");
                     try {
                         a = Double.parseDouble(s.nextLine().trim());
                         break;
                     }  catch (Exception ignored) {}}
                 while (true) {
-                    System.out.println("A/B: ");
+                    System.out.print("A/B: ");
                     try {
                         b = Double.parseDouble(s.nextLine().trim());
                         break;
