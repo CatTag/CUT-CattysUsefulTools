@@ -33,7 +33,7 @@ public class Main {
                     back.pythag();
 
                 case "mc":
-                    textmc.main(null);
+                    //textmc.main(null);
             }
         }
     }
