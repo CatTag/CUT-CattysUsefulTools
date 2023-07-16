@@ -21,7 +21,7 @@ public class textmc {
         String[] input;
 
         int wood = 0;
-        int sticks = 0;
+        int sticks = 0;//test
 
         Scanner s = new Scanner(System.in);
         System.out.print("Plains: ");
