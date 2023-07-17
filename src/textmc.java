@@ -1,7 +1,6 @@
 
 import java.util.Scanner;
 import java.util.Random;
-//test
 public class textmc {
     public static void main(String[] args){
         System.out.println("#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=#");
