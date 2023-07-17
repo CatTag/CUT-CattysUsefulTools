@@ -1,6 +1,4 @@
-
 import java.util.Scanner;
-import java.util.Random;
 public class textmc {
     public static void main(String[] args){
         System.out.println("#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=#");
@@ -32,10 +30,12 @@ public class textmc {
 
 
             switch (input[0]) {
-                case "craft":
+                case "craft" -> {
                     try {
                         craft(inv, input);
-                    } catch (Exception ignored) {}
+                    } catch (Exception ignored) {
+                    }
+                }
 //                case "mine":
 //                    try{
 //                        mine(inv, input, "plains");
@@ -51,8 +51,7 @@ public class textmc {
         String pic = (inv[2]);
 
         switch (input[1]) {
-
-            case "sticks":
+            case "sticks" -> {
                 try {
                     if (Integer.parseInt(input[2]) <= wood / 2) {
                         sticks += Integer.parseInt(input[2]) * 4;
@@ -62,13 +61,12 @@ public class textmc {
                     }
                     System.out.println("Total Sticks: " + sticks);
                     System.out.println("Total wood: " + wood);
-                } catch (Exception Ignored) {}
-                break;
-
-            case "pic":
-            case "pickaxe":
-                if (pic.equals("wood")){
+                } catch (Exception ignored) {}
+            }
+            case "pic", "pickaxe" -> {
+                if (pic.equals("wood")) {
                     System.out.println("You already have a wooden pickaxe");
+                    break;
                 }
                 try {
                     if (Integer.parseInt(input[2]) <= wood / 3 && Integer.parseInt(input[2]) <= sticks / 2) {
@@ -81,11 +79,11 @@ public class textmc {
                     System.out.println("Total Sticks: " + sticks);
                     System.out.println("Total wood: " + wood);
                     System.out.println("Total wood: " + pic);
-                } catch (Exception Ignored) {}
-                break;
-
-            default:
-                break;
+                } catch (Exception ignored) {
+                }
+            }
+            default -> {
+            }
         }
         inv[0] = Integer.toString(wood);
         inv[1] = Integer.toString(sticks);
