@@ -35,8 +35,11 @@ public class textmc {
                 case "craft":
                     try {
                         craft(inv, input);
-                    }
-                    catch (Exception ignored) {}
+                    } catch (Exception ignored) {}
+                case "mine":
+                    try{
+                        mine(inv, input, "plains");
+                    } catch (Exception ignored) {}
             }
 
         }
@@ -87,6 +90,21 @@ public class textmc {
         inv[0] = Integer.toString(wood);
         inv[1] = Integer.toString(sticks);
         inv[2] = pic;
+        return(inv);
+    }
+
+
+    static String[] mine(String[] inv, String[]input, String biome){
+        try {
+            if (input[1].equals("tree")) {
+                switch (biome){
+                    case "plains":
+
+                }
+            } else {
+
+            }
+        } catch (Exception ignore) {}
         return(inv);
     }
 }

@@ -20,6 +20,7 @@ public class back {
             System.out.println("exit {exit code}");
             System.out.println("help {page}");
             System.out.println("pythag {+ or -} {A/C} {B/A}");
+            System.out.println("mc");
             System.out.println("Page 1 of 1");
         }
     }
