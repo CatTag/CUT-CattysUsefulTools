@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class back {
     static void help(String[] input) {
         try {
@@ -21,50 +19,24 @@ public class back {
             System.out.println("Type help help to get more help");
             System.out.println("exit {exit code}");
             System.out.println("help {page}");
+            System.out.println("pythag {+ or -} {A/C} {B/A}");
             System.out.println("Page 1 of 1");
         }
     }
-    static void pythag(){
-        double a;
-        double b;
-        Scanner s = new Scanner(System.in);
-        String input;
-        do {
-            System.out.print("+ or - ");
-            input = s.nextLine();
-        } while (!(input.equals("+") | input.equals("-")));
-        switch (input) {
-            case "+":
-                while (true) {
-                    System.out.print("A: ");
-                    try {
-                        a = Double.parseDouble(s.nextLine().trim());
-                        break;
-                    }  catch (Exception ignored) {}}
-                while (true) {
-                    System.out.print("B: ");
-                    try {
-                        b = Double.parseDouble(s.nextLine().trim());
-                        break;
-                    } catch(Exception ignored){}}
-                System.out.println("C: " + Math.round(Math.sqrt(a*a+b*b)*100)/100);
-                break;
-
-            case "-":
-                while (true) {
-                    System.out.print("C: ");
-                    try {
-                        a = Double.parseDouble(s.nextLine().trim());
-                        break;
-                    }  catch (Exception ignored) {}}
-                while (true) {
-                    System.out.print("A/B: ");
-                    try {
-                        b = Double.parseDouble(s.nextLine().trim());
-                        break;
-                    } catch(Exception ignored){}}
-                System.out.println("B/A: " + Math.round(Math.sqrt(a*a-b*b)*100)/100);
-                break;
+    static void pythag(String[] abc){
+        if (abc[1].equals("+")) {
+            try {
+                double a = Double.parseDouble(abc[2]);
+                double b = Double.parseDouble(abc[3]);
+                System.out.println("C: " + Math.round(Math.sqrt(a * a + b * b) * 100) / 100);
+            } catch (Exception all) { System.out.println(("A or B are NaN")); }
+        }
+        else{
+            try{
+                double c = Double.parseDouble(abc[2]);
+                double b = Double.parseDouble(abc[3]);
+                System.out.println("C: " + Math.round(Math.sqrt(c*c-b*b)*100)/100);
+            } catch (Exception all){ System.out.println(("C or B are NaN")); }
         }
     }
 }

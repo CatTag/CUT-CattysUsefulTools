@@ -26,14 +26,18 @@ public class Main {
                     } catch (Exception all) {
                         s.close();
                         System.exit(0); }
+                    break;
                 case "help":
                     back.help(input);
+                    break;
 
                 case "pythag":
-                    back.pythag();
+                    back.pythag(input);
+                    break;
 
                 case "mc":
                     textmc.main(null);
+                    break;
             }
         }
     }
