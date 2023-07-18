@@ -27,7 +27,7 @@ public class Main {
                 }
                 case "help" -> Background.help(input);
                 case "pythag" -> Background.pythag(input);
-                case "mc" -> TextMC.main(null);
+                case "mc" -> TextMC.main();
             }
         }
     }

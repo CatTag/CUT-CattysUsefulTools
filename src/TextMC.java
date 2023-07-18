@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
 public class TextMC {
-    public static void main(String[] args) {
+    public static void main() {
         System.out.println("#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=#");
         System.out.println("|This is my take on a text based kind of crap minecraft clone.|");
         System.out.println("|                          Have fun!                          |");
