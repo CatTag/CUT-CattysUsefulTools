@@ -1,9 +1,9 @@
-public class back {
+public class Background {
     static void help(String[] input) {
         try {
             if (input[1].equals("help")) {
                 System.out.println("Page: help for help");
-                System.out.println("This is the help menu\nIt shows the command in lowercase plain text then any posable arguments in {}");
+                System.out.println("This is the help menu\nIt shows the command in lowercase plain text then any arguments in {}");
                 System.out.println("eg. exit {exit code}");
                 System.out.println("    /\\command  /\\argument in this case what code it exits with");
             } else if (input[1].equals("1")) {
