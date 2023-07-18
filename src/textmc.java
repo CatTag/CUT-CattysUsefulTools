@@ -1,4 +1,6 @@
+import java.net.InterfaceAddress;
 import java.util.Scanner;
+import java.util.Random;
 public class textmc {
     public static void main(String[] args){
         System.out.println("#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=#");
@@ -7,10 +9,17 @@ public class textmc {
         System.out.println("|            Type help to show a list of commands.            |");
         System.out.println("|           Note: there is no save system currently           |");
         System.out.println("#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=#");
-        String[] inv = {"20", "0", "none"};
-        //[0 is wood]
-        //[1 is sticks]
-        //[2 is pic level]
+        //String[] inv = inv.start;
+        String[] inv = {"0", "0", "none", "0", "0", "0", "0", "false"};
+        //[0] planks
+        //[1] sticks
+        //[2] pic level
+        //[3] logs
+        //[4] stone
+        //[5] coal
+        //[6] iron
+        //[7] furnace (bool)
+
 
         plains(inv);
 
@@ -36,73 +45,137 @@ public class textmc {
                     } catch (Exception ignored) {
                     }
                 }
-//                case "mine":
-//                    try{
-//                        mine(inv, input, "plains");
-//                    } catch (Exception ignored) {}
+                case "mine" -> {
+                    try {
+                        mine(inv, input);
+                    } catch (Exception ignored) {}}
+                case "inv" -> {
+                    if (input[1].equals("list")){
+                        inv.list(inv);
+                    } else if (input[1].equals("add")) {
+                        inv.add(inv, input);
+                    } else if (input[1].equals("clear")){
+                        inv.clear(inv, input);
+                    }
+                }
+
             }
 
         }
         return(inv);
     }
     public static String[] craft(String[] inv, String[] input){
-        int wood = Integer.parseInt(inv[0]);
+
+        int planks = Integer.parseInt(inv[0]);
         int sticks = Integer.parseInt(inv[1]);
         String pic = (inv[2]);
+        int logs = Integer.parseInt(inv[3]);
+        int stone = Integer.parseInt(inv[4]);
+        int coal = Integer.parseInt(inv[5]);
+        int iron = Integer.parseInt(inv[6]);
+        boolean furnace = Boolean.parseBoolean(inv[7]);
+
 
         switch (input[1]) {
             case "sticks" -> {
                 try {
-                    if (Integer.parseInt(input[2]) <= wood / 2) {
+                    if (Integer.parseInt(input[2]) <= planks / 2) {
                         sticks += Integer.parseInt(input[2]) * 4;
-                        wood -= Integer.parseInt(input[2]) * 2;
+                        planks -= Integer.parseInt(input[2]) * 2;
                     } else {
                         System.out.println("Not enough resources!");
                     }
                     System.out.println("Total Sticks: " + sticks);
-                    System.out.println("Total wood: " + wood);
+                    System.out.println("Total wood: " + planks);
                 } catch (Exception ignored) {}
             }
             case "pic", "pickaxe" -> {
-                if (pic.equals("wood")) {
-                    System.out.println("You already have a wooden pickaxe");
-                    break;
-                }
-                try {
-                    if (Integer.parseInt(input[2]) <= wood / 3 && Integer.parseInt(input[2]) <= sticks / 2) {
-                        sticks -= Integer.parseInt(input[2]) * 2;
-                        wood -= Integer.parseInt(input[2]) * 3;
-                        pic = "wood";
-                    } else {
-                        System.out.println("Not enough resources!");
+                if (input[1].equals("wood")){
+                    if (pic.equals("wood")) {
+                        System.out.println("You already have a wooden pickaxe");
+
                     }
-                    System.out.println("Total Sticks: " + sticks);
-                    System.out.println("Total wood: " + wood);
-                    System.out.println("Total wood: " + pic);
-                } catch (Exception ignored) {
+                    else {
+                        if (planks >= 3 && sticks >= 2) {
+                            sticks -= 2;
+                            planks -= 3;
+                            pic = "wood";
+                        } else {
+                            System.out.println("Not enough resources!");
+                        }
+                        System.out.println("Total Sticks: " + sticks);
+                        System.out.println("Total planks: " + planks);
+                        System.out.println("Pic level: " + pic);
+                    }
+                } else if (input[1].equals("stone")){
+                    if (stone >= 3 && sticks >= 2) {
+                        sticks -= 2;
+                        stone -= 3;
+                    }
+                }
+            }
+            case "planks" -> {
+                if (Integer.parseInt(input[1]) <= Integer.parseInt(inv[3])) {
+                    logs -= Integer.parseInt(input[1]);
+                    planks += Integer.parseInt(inv[1]) * 4;
+                    System.out.println("Total logs: " + logs);
+                    System.out.println("Total planks: " + planks);
+                } else {
+                    System.out.println("Not enough resources!");
                 }
             }
             default -> {
             }
         }
-        inv[0] = Integer.toString(wood);
+        inv[0] = Integer.toString(planks);
         inv[1] = Integer.toString(sticks);
         inv[2] = pic;
+        inv[3] = Integer.toString(logs);
+        inv[4] = Integer.toString(stone);
+        inv[5] = Integer.toString(coal);
+        inv[6] = Integer.toString(iron);
         return(inv);
     }
 
 
-//    static String[] mine(String[] inv, String[]input, String biome){
-//        try {
-//            if (input[1].equals("tree")) {
-//                switch (biome){
-//                    case "plains":
-//
-//                }
-//            } else {
-//
-//            }
-//        } catch (Exception ignore) {}
-//        return(inv);
-//    }
+
+    public static  String[] mine(String[] inv, String[] input) {
+        Random r = new Random();
+        int ore;
+
+        int y = Integer.parseInt(input[1]);
+
+        String pic = inv[2];
+        int logs = Integer.parseInt(inv[3]);
+        int stone = Integer.parseInt(inv[4]);
+        int coal = Integer.parseInt(inv[5]);
+        int iron = Integer.parseInt(inv[6]);
+
+
+        if (y > 64) {
+            logs += r.nextInt(10)+1;
+        } else if (y <= 64){
+            stone =+ r.nextInt(20)+1;
+            ore = r.nextInt(2);
+            if (ore == 1){
+                coal =+ r.nextInt(5)+5;
+            }
+            if (y <= 45){
+                ore = r.nextInt(3);
+                if (ore == 1 && !(pic != "wood" | pic != "none")){
+                    iron =+ r.nextInt(2)+3;
+                } else if (ore == 1){
+                    System.out.println("You need a stone or higher tier pic to mine iron!");
+
+                }
+            }
+        }
+        inv[3] = Integer.toString(logs);
+        inv[4] = Integer.toString(stone);
+        inv[5] = Integer.toString(coal);
+
+        System.out.println("Total Logs: " + logs);
+
+        return(inv);
+    }
 }
