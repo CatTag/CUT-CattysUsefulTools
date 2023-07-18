@@ -25,9 +25,9 @@ public class Main {
                         System.exit(0);
                     }
                 }
-                case "help" -> back.help(input);
-                case "pythag" -> back.pythag(input);
-                case "mc" -> textmc.main(null);
+                case "help" -> Background.help(input);
+                case "pythag" -> Background.pythag(input);
+                case "mc" -> TextMC.main(null);
             }
         }
     }
