@@ -1,23 +1,13 @@
 import java.util.Scanner;
 import java.util.Random;
 public class TextMC {
-    public static void main() {
+    public static void mcMain() {
         System.out.println("#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=#");
         System.out.println("|This is my take on a text based kind of crap minecraft clone.|");
         System.out.println("|                          Have fun!                          |");
         System.out.println("|            Type help to show a list of commands.            |");
         System.out.println("|           Note: there is no save system currently           |");
         System.out.println("#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=#");
-
-        //[0] planks
-        //[1] sticks
-        //[2] pic level
-        //[3] logs
-        //[4] stone
-        //[5] coal
-        //[6] iron
-        //[7] furnace (bool)
-
 
         Scanner s = new Scanner(System.in);
         String in;
@@ -137,8 +127,10 @@ public class TextMC {
                     if (stone >= 8){
                         furnace = true;
                         stone -= 8;
-                    }
-                }
+                        System.out.println("Furnace: " + furnace);
+                        System.out.println("Stone: " + stone);
+                    } else { System.out.println("Not enough resources!");}
+                } else { System.out.println("You already have a furnace!");}
             }
 
 
