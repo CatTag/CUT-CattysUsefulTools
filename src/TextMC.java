@@ -54,12 +54,12 @@ public class TextMC {
 
         int planks = Integer.parseInt(Vars.inv[0]);
         int sticks = Integer.parseInt(Vars.inv[1]);
-        String pic = (Vars.inv[2]);
+        String pic = Vars.picLevel;
         int logs = Integer.parseInt(Vars.inv[3]);
         int stone = Integer.parseInt(Vars.inv[4]);
         int coal = Integer.parseInt(Vars.inv[5]);
         int iron = Integer.parseInt(Vars.inv[6]);
-        boolean furnace = Boolean.parseBoolean(Vars.inv[7]);
+        boolean furnace = Vars.furnace;
 
 
         switch (Vars.input[1]) {
@@ -94,8 +94,7 @@ public class TextMC {
                         }
                     }
                 } else
-                    //noinspection ConstantValue
-                    if (Vars.input[1].equals("stone")){
+                    if (Vars.input[2].equals("stone")){
                     if (pic.equals("stone")) {
                         System.out.println("you already have a stone pic");
                     }
@@ -124,7 +123,7 @@ public class TextMC {
             }
             case "furnace" -> {
                 if (!furnace) {
-                    if (stone >= 8){
+                    if (stone >= 8) {
                         furnace = true;
                         stone -= 8;
                         System.out.println("Furnace: " + furnace);
@@ -153,7 +152,7 @@ public class TextMC {
         Random r = new Random();
         int ore;
         int y = Integer.parseInt(Vars.input[1]);
-        String pic = Vars.inv[2];
+        String pic = Vars.picLevel;
         int logs = Integer.parseInt(Vars.inv[3]);
         int stone = Integer.parseInt(Vars.inv[4]);
         int coal = Integer.parseInt(Vars.inv[5]);
