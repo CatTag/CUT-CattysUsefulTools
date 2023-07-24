@@ -1,11 +1,11 @@
 public class Inventory {
     static void list(){
-        System.out.println("Planks: "+Vars.inv.get("planks"));
-        System.out.println("Sticks: "+Vars.inv.get("sticks"));
-        System.out.println("Logs: "+Vars.inv.get("logs"));
-        System.out.println("Stone: "+Vars.inv.get("stone"));
-        System.out.println("Coal: "+Vars.inv.get("coal"));
-        System.out.println("Iron: "+Vars.inv.get("iron"));
+        System.out.println("Planks: " + Vars.inv.get("planks"));
+        System.out.println("Sticks: " + Vars.inv.get("sticks"));
+        System.out.println("Logs: " + Vars.inv.get("logs"));
+        System.out.println("Stone: " + Vars.inv.get("stone"));
+        System.out.println("Coal: " + Vars.inv.get("coal"));
+        System.out.println("Iron: " + Vars.inv.get("iron"));
     }
     static void add(){
         try {
