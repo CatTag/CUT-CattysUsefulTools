@@ -14,6 +14,7 @@ public class TextMC {
         String name;
 
 
+
         Scanner n = new Scanner(System.in);
         System.out.print("what is your username: ");
         name = n.nextLine();
@@ -30,14 +31,12 @@ public class TextMC {
                 case "craft" -> {
                     try {
                         craft();
-                    } catch (Exception ignored) {
-                    }
+                    } catch (Exception ignored) {}
                 }
                 case "mine" -> {
                     try {
                         mine();
-                    } catch (Exception ignored) {
-                    }
+                    } catch (Exception ignored) {}
                 }
                 case "inv" -> {
                     switch (Vars.input[1]) {
@@ -54,13 +53,13 @@ public class TextMC {
 
         int planks = Integer.parseInt(Vars.inv[0]);
         int sticks = Integer.parseInt(Vars.inv[1]);
-        String pic = Vars.picLevel;
+
         int logs = Integer.parseInt(Vars.inv[3]);
         int stone = Integer.parseInt(Vars.inv[4]);
         int coal = Integer.parseInt(Vars.inv[5]);
         int iron = Integer.parseInt(Vars.inv[6]);
         boolean furnace = Vars.furnace;
-
+        String pic = Vars.picLevel;
 
         switch (Vars.input[1]) {
             case "sticks" -> {
@@ -138,12 +137,13 @@ public class TextMC {
         }
         Vars.inv[0] = Integer.toString(planks);
         Vars.inv[1] = Integer.toString(sticks);
-        Vars.inv[2] = pic;
+
         Vars.inv[3] = Integer.toString(logs);
         Vars.inv[4] = Integer.toString(stone);
         Vars.inv[5] = Integer.toString(coal);
         Vars.inv[6] = Integer.toString(iron);
-        Vars.inv[7] = Boolean.toString(furnace);
+        Vars.furnace = furnace;
+        Vars.picLevel = pic;
     }
 
 
