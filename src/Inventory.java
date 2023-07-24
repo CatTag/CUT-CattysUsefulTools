@@ -1,19 +1,26 @@
 public class Inventory {
     static void list(){
-        System.out.println("Planks: "+Vars.inv[0]);
-        System.out.println("Sticks: "+Vars.inv[1]);
-
-        System.out.println("Logs: "+Vars.inv[3]);
-        System.out.println("Stone: "+Vars.inv[4]);
-        System.out.println("Coal: "+Vars.inv[5]);
-        System.out.println("Iron: "+Vars.inv[6]);
+        System.out.println("Planks: "+Vars.inv.get("planks"));
+        System.out.println("Sticks: "+Vars.inv.get("sticks"));
+        System.out.println("Logs: "+Vars.inv.get("logs"));
+        System.out.println("Stone: "+Vars.inv.get("stone"));
+        System.out.println("Coal: "+Vars.inv.get("coal"));
+        System.out.println("Iron: "+Vars.inv.get("iron"));
     }
     static void add(){
-        int item = Integer.parseInt(Vars.inv[Integer.parseInt(Vars.input[3])]);
-        item += Integer.parseInt(Vars.input[2]);
-        Vars.inv[Integer.parseInt(Vars.input[3])] = Integer.toString(item);
+        try {
+            Vars.inv.put(Vars.input[2], Integer.parseInt(Vars.input[3]));
+        } catch (Exception ignored) { System.out.println("Invalid Syntax"); }
     }
     static void clear(){
-
+        Vars.inv.clear();
+    }
+    public static void createInv(){
+        Vars.inv.put("planks", 0);
+        Vars.inv.put("sticks", 0);
+        Vars.inv.put("logs", 0);
+        Vars.inv.put("stone", 0);
+        Vars.inv.put("coal", 0);
+        Vars.inv.put("iron", 0);
     }
 }

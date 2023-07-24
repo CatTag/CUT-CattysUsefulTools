@@ -1,14 +1,9 @@
+import java.util.HashMap;
 public class Vars {
     public static String[] input;
     public static boolean firstPicPrompt = true;
-    public static String[] inv = {"0", "0", "0", "0", "0", "0"};
-    //[0] planks
-    //[1] sticks
+    public static HashMap<String, Integer> inv = new HashMap<>();
 
-    //[3] logs
-    //[4] stone
-    //[5] coal
-    //[6] iron
 
     public static String picLevel = "none";
     public static Boolean furnace = false;

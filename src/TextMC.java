@@ -14,6 +14,8 @@ public class TextMC {
         String name;
 
 
+        Inventory.createInv();
+
 
         Scanner n = new Scanner(System.in);
         System.out.print("what is your username: ");
@@ -51,13 +53,13 @@ public class TextMC {
     }
     public static void craft(){
 
-        int planks = Integer.parseInt(Vars.inv[0]);
-        int sticks = Integer.parseInt(Vars.inv[1]);
+        int planks = Vars.inv.get("planks");
+        int sticks = Vars.inv.get("sticks");
+        int logs = Vars.inv.get("logs");
+        int stone = Vars.inv.get("stone");
+        int coal = Vars.inv.get("coal");
+        int iron = Vars.inv.get("iron");
 
-        int logs = Integer.parseInt(Vars.inv[3]);
-        int stone = Integer.parseInt(Vars.inv[4]);
-        int coal = Integer.parseInt(Vars.inv[5]);
-        int iron = Integer.parseInt(Vars.inv[6]);
         boolean furnace = Vars.furnace;
         String pic = Vars.picLevel;
 
@@ -135,13 +137,13 @@ public class TextMC {
             default -> {
             }
         }
-        Vars.inv[0] = Integer.toString(planks);
-        Vars.inv[1] = Integer.toString(sticks);
+        Vars.inv.put("planks", planks);
+        Vars.inv.put("sticks", sticks);
+        Vars.inv.put("logs", logs);
+        Vars.inv.put("stone", stone);
+        Vars.inv.put("coal", coal);
+        Vars.inv.put("iron", iron);
 
-        Vars.inv[3] = Integer.toString(logs);
-        Vars.inv[4] = Integer.toString(stone);
-        Vars.inv[5] = Integer.toString(coal);
-        Vars.inv[6] = Integer.toString(iron);
         Vars.furnace = furnace;
         Vars.picLevel = pic;
     }
@@ -150,14 +152,18 @@ public class TextMC {
 
     public static void mine() {
         Random r = new Random();
+
         int ore;
         int y = Integer.parseInt(Vars.input[1]);
-        String pic = Vars.picLevel;
-        int logs = Integer.parseInt(Vars.inv[3]);
-        int stone = Integer.parseInt(Vars.inv[4]);
-        int coal = Integer.parseInt(Vars.inv[5]);
-        int iron = Integer.parseInt(Vars.inv[6]);
 
+        int planks = Vars.inv.get("planks");
+        int sticks = Vars.inv.get("sticks");
+        int logs = Vars.inv.get("logs");
+        int stone = Vars.inv.get("stone");
+        int coal = Vars.inv.get("coal");
+        int iron = Vars.inv.get("iron");
+
+        String pic = Vars.picLevel;
 
         if (y >= 64) {
             logs += r.nextInt(10)+1;
@@ -190,9 +196,14 @@ public class TextMC {
                 }
             }
         } else {System.out.println("You need a pic to mine below ground!");}
-        Vars.inv[3] = Integer.toString(logs);
-        Vars.inv[4] = Integer.toString(stone);
-        Vars.inv[5] = Integer.toString(coal);
+
+
+        Vars.inv.put("planks", planks);
+        Vars.inv.put("sticks", sticks);
+        Vars.inv.put("logs", logs);
+        Vars.inv.put("stone", stone);
+        Vars.inv.put("coal", coal);
+        Vars.inv.put("iron", iron);
 
 
     }
