@@ -1,5 +1,7 @@
 import java.util.Scanner;
 import java.time.Instant;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 public class Main {
     public static void main(String[] args) throws InterruptedException{
         Scanner s = new Scanner(System.in);
@@ -29,16 +31,14 @@ public class Main {
                 case "help" -> Background.help();
                 case "pythag" -> Background.pythag();
                 case "mc" -> TextMC.mcMain();
-                case "mil" -> millionTest();
+                case "test" -> test();
             }
         }
     }
-    static void millionTest() throws InterruptedException{
-        int i = 0;
+    static void test() throws InterruptedException{
+        int i = Integer.parseInt(Vars.input[1]);
         double start = Instant.now().toEpochMilli();
-        while (i < 1000000000){
-            i++;
-        }
+        while(i>0){i--;}
         double end = Instant.now().toEpochMilli();
         System.out.println("It took " + (end - start)/100 + " seconds!");
     }
