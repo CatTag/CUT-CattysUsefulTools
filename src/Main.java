@@ -1,6 +1,7 @@
 import java.util.Scanner;
+import java.time.Instant;
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException{
         Scanner s = new Scanner(System.in);
         String in;
         System.out.println("\n\n#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=#");
@@ -25,10 +26,20 @@ public class Main {
                         System.exit(0);
                     }
                 }
-                case "help" -> Background.help(input);
-                case "pythag" -> Background.pythag(input);
+                case "help" -> Background.help();
+                case "pythag" -> Background.pythag();
                 case "mc" -> TextMC.mcMain();
+                case "mil" -> millionTest();
             }
         }
+    }
+    static void millionTest() throws InterruptedException{
+        int i = 0;
+        double start = Instant.now().toEpochMilli();
+        while (i < 1000000000){
+            i++;
+        }
+        double end = Instant.now().toEpochMilli();
+        System.out.println("It took " + (end - start)/100 + " seconds!");
     }
 }

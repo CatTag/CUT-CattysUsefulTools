@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class TextMC {
-    public static void mcMain() {
+    public static void mcMain() throws InterruptedException{
         System.out.println("#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=#");
         System.out.println("|This is my take on a text based kind of crap minecraft clone.|");
         System.out.println("|                          Have fun!                          |");
@@ -18,6 +18,7 @@ public class TextMC {
         Scanner n = new Scanner(System.in);
         System.out.print("what is your username: ");
         name = n.nextLine();
+        n.close();
 
 
         //noinspection InfiniteLoopStatement
