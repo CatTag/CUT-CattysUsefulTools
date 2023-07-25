@@ -1,7 +1,5 @@
 import java.util.Scanner;
 import java.time.Instant;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 public class Main {
     public static void main(String[] args) throws InterruptedException{
         Scanner s = new Scanner(System.in);
