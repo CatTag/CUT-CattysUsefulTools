@@ -12,6 +12,8 @@ public class TextMC {
         String in;
         String name;
 
+        Inventory.create();
+
 
         Scanner n = new Scanner(System.in);
         System.out.print("what is your username: ");

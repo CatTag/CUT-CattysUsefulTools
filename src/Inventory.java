@@ -21,4 +21,13 @@ public class Inventory {
     static void clear() {
         Vars.inv.clear();
     }
+    static void create(){
+        Vars.inv.put("planks", 0);
+        Vars.inv.put("sticks", 0);
+        Vars.inv.put("logs", 0);
+        Vars.inv.put("stone", 0);
+        Vars.inv.put("coal", 0);
+        Vars.inv.put("ironOre", 0);
+        Vars.inv.put("iron", 0);
+    }
 }
